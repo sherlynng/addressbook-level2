@@ -35,7 +35,7 @@
 12. Run the tests again to ensure they all pass now.
 
 ## Design
-<img src="images/mainClassDiagram.png"/>
+<img src="images/mainClassDiagramUpdated.png"/>
 
 ## Testing
 
