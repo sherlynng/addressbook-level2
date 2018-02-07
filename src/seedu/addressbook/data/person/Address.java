@@ -8,15 +8,15 @@ import seedu.addressbook.data.exception.IllegalValueException;
  */
 public class Address {
 
-    public static final String EXAMPLE = "123, some street";
-    public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
-    public static final String ADDRESS_VALIDATION_REGEX = ".+";
+    public static final String EXAMPLE = "123, Clementi Ave 3, #12-34, 231534";
+    public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses should be in this format a/BLOCK, STREET, UNIT, POSTAL_CODE";
+    public static final String ADDRESS_VALIDATION_REGEX = ".+, .+, .+, .+";
 
     public final String value;
-    public String block;
-    public String street;
-    public String unit;
-    public String postalCode;
+    public Block block;
+    public Street street;
+    public Unit unit;
+    public PostalCode postalCode;
 
     private boolean isPrivate;
 
@@ -26,15 +26,19 @@ public class Address {
      * @throws IllegalValueException if given address string is invalid.
      */
     public Address(String address, boolean isPrivate) throws IllegalValueException {
+        String trimmedAddress = address.trim();
+
         String splitAddress[] = new String[4];
         splitAddress = address.split(",");
+        try {
+            block = new Block(splitAddress[0]);
+            street = new Street(splitAddress[1]);
+            unit = new Unit(splitAddress[2]);
+            postalCode = new PostalCode(splitAddress[3]);
+        }catch (ArrayIndexOutOfBoundsException e){
+            throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
+        }
 
-        splitAddress[0] = this.block;
-        splitAddress[1] = this.street;
-        splitAddress[2] = this.unit;
-        splitAddress[3] = this.postalCode;
-        
-        String trimmedAddress = address.trim();
         this.isPrivate = isPrivate;
         if (!isValidAddress(trimmedAddress)) {
             throw new IllegalValueException(MESSAGE_ADDRESS_CONSTRAINTS);
@@ -68,5 +72,37 @@ public class Address {
 
     public boolean isPrivate() {
         return isPrivate;
+    }
+}
+
+class Block{
+    public final String block;
+
+    public Block(String block) {
+        this.block = block.trim();
+    }
+}
+
+class Street{
+    public final String street;
+
+    public Street(String street) {
+        this.street = street.trim();
+    }
+}
+
+class Unit{
+    public final String unit;
+
+    public Unit(String unit) {
+        this.unit = unit.trim();
+    }
+}
+
+class PostalCode{
+    public final String postalCode;
+
+    public PostalCode(String postalCode) {
+        this.postalCode = postalCode.trim();
     }
 }
