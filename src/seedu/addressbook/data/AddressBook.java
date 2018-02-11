@@ -115,6 +115,13 @@ public class AddressBook {
     }
 
     /**
+     * Returns UniquePersonList of all persons in the address book.
+     */
+    public UniquePersonList getUniquePersonList() {
+        return allPersons;
+    }
+
+    /**
      * Returns a new UniqueTagList of all tags in the address book at the time of the call.
      */
     public UniqueTagList getAllTags() {
