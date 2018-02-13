@@ -98,11 +98,11 @@
   find bet
   # does not match if none have keyword
   find 23912039120
-  # matching should be case-sensitive
-  find betsy
-
-  # find unique keyword
+  
+  # find original keyword
   find Betsy
+  # find keyword, non case sensitive
+  find betsy
   # find multiple with same keyword
   find Dickson
   # find multiple with some keywords
