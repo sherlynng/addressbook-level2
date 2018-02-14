@@ -7,7 +7,7 @@ import seedu.addressbook.ui.Formatter;
 
 import java.util.List;
 
-import static seedu.addressbook.ui.TextUi.DISPLAYED_INDEX_OFFSET;
+import static seedu.addressbook.ui.Formatter.DISPLAYED_INDEX_OFFSET;
 
 /**
  * Represents an executable command.
