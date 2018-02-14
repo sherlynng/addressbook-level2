@@ -71,6 +71,8 @@ public interface ReadOnlyPerson {
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
+        builder.append(" Sequence Number: ")
+                .append(getSequenceNumber());
         return builder.toString();
     }
 
@@ -93,6 +95,8 @@ public interface ReadOnlyPerson {
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
+        builder.append(" Sequence Number: ")
+                .append(getSequenceNumber());
         return builder.toString();
     }
 }

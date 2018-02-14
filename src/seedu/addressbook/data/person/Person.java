@@ -74,7 +74,7 @@ public class Person implements ReadOnlyPerson {
     public int getSequenceNumber() {
         return sequenceNumber;
     }
-    
+
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
